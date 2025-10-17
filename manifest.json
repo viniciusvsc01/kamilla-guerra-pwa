@@ -1,22 +1,22 @@
 {
-  "name": "Kamilla Guerra Fonoaudiologia",
-  "short_name": "KG Fono",
+  "name": "Maria Silva - Kamilla Guerra",
+  "short_name": "Maria Silva",
   "description": "Portal do Paciente - Kamilla Guerra Fonoaudiologia",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/kamilla-guerra-pwa/pacientes/maria-silva/",
+  "scope": "/kamilla-guerra-pwa/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1f2937",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "/kamilla-guerra-pwa/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./icon-512.png",
+      "src": "/kamilla-guerra-pwa/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
