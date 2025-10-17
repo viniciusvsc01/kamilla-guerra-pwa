@@ -242,9 +242,93 @@
             window.location.href = `mailto:${pacienteData.emailSugestoes}?subject=${assunto}&body=${corpo}`;
         };
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/kamilla-guerra-pwa/service-worker.js');
+       // Service Worker com detecção de atualização
+if ('serviceWorker' in navigator) {
+    let refreshing = false;
+    
+    navigator.serviceWorker.register('/kamilla-guerra-pwa/service-worker.js')
+        .then((registration) => {
+            console.log('Service Worker registrado');
+            
+            // Verifica atualizações a cada 1 hora
+            setInterval(() => {
+                registration.update();
+            }, 60 * 60 * 1000);
+            
+            // Detecta quando há nova versão
+            registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        // Nova versão disponível!
+                        mostrarAvisoAtualizacao();
+                    }
+                });
+            });
+        });
+    
+    // Recarrega quando service worker for atualizado
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {
+            refreshing = true;
+            window.location.reload();
         }
+    });
+}
+
+// Mostra aviso de atualização
+function mostrarAvisoAtualizacao() {
+    const avisoHTML = `
+        <div id="aviso-atualizacao" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 9999;
+            animation: slideDown 0.3s ease;
+        ">
+            <p style="margin: 0 0 12px 0; font-size: 14px; font-weight: 500;">
+                ✨ Nova versão disponível!
+            </p>
+            <button onclick="atualizarApp()" style="
+                background: white;
+                color: #667eea;
+                border: none;
+                padding: 10px 24px;
+                border-radius: 20px;
+                font-weight: 600;
+                font-size: 14px;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            ">
+                Atualizar agora
+            </button>
+        </div>
+        <style>
+            @keyframes slideDown {
+                from { transform: translateY(-100%); }
+                to { transform: translateY(0); }
+            }
+        </style>
+    `;
+    
+    document.body.insertAdjacentHTML('afterbegin', avisoHTML);
+}
+
+// Atualiza o app
+window.atualizarApp = function() {
+    navigator.serviceWorker.getRegistration().then((registration) => {
+        if (registration && registration.waiting) {
+            registration.waiting.postMessage('SKIP_WAITING');
+        }
+    });
+};
 
         render();
     </script>
