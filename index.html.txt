@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f2937">
+    <title>Kamilla Guerra Fonoaudiologia</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-md w-full text-center">
+            <h1 class="text-3xl font-light text-gray-800 mb-2">Kamilla Guerra</h1>
+            <p class="text-gray-500 font-light mb-8">Fonoaudiologia</p>
+            
+            <div class="bg-white border border-gray-200 p-8">
+                <p class="text-gray-600 font-light leading-relaxed">
+                    Bem-vindo ao portal do paciente.<br>
+                    Acesse através do link enviado pela clínica.
+                </p>
+            </div>
+
+            <p class="text-xs text-gray-400 font-light mt-8">© 2025 Kamilla Guerra Fonoaudiologia</p>
+        </div>
+    </div>
+</body>
+</html>
