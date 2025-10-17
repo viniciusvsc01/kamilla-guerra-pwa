@@ -1,8 +1,8 @@
 {
-  "name": "Maria Silva - Kamilla Guerra",
-  "short_name": "Maria Silva",
+  "name": "NOME DO PACIENTE - Kamilla Guerra",
+  "short_name": "NOME DO PACIENTE",
   "description": "Portal do Paciente - Kamilla Guerra Fonoaudiologia",
-  "start_url": "/kamilla-guerra-pwa/pacientes/maria-silva/",
+  "start_url": "/kamilla-guerra-pwa/pacientes/PASTA-DO-PACIENTE/",
   "scope": "/kamilla-guerra-pwa/",
   "display": "standalone",
   "background_color": "#ffffff",
