@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1.0.0';  // ← MUDE ISSO A CADA ATUALIZAÇÃO
+const CACHE_VERSION = 'v1.0.1';  // ← MUDE ISSO A CADA ATUALIZAÇÃO
 const CACHE_NAME = `kamilla-guerra-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
@@ -56,3 +56,4 @@ self.addEventListener('fetch', (event) => {
             return cachedResponse;
           }
           // Se não tem no cache, retorna erro
+
